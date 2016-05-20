@@ -260,6 +260,7 @@ func (b *Bridge) newService(port ServicePort, isgroup bool) *Service {
 		p, _ = strconv.Atoi(port.HostPort)
 	}
 	service.IP = mapDefault(metadata, "bind_ip", service.IP)
+	log.Println("going to register on ip: ", service.IP)
 	service.Port = p
 
 	if port.PortType == "udp" {
